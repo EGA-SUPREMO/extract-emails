@@ -1,14 +1,11 @@
-def readJSON():
-	with open('eu', 'r') as json_file:
-		str_json = json_file.read()
-		data = str_json
-		return data;
+def readHTML():
+	with open('raw.html', 'r') as file:
+		strs = file.read()
+		return strs;
 
 import re
-pattern = 'r"(?<=href).*?(?=style)"'
+pattern = 'r"(?<=mailt).*?(?=style)"'
 
-text = readJSON()
+text = readHTML()
 
-print(re.findall(r"(?<=mailto).*?(?=style)", text))
-#for i in matches:
-	#print(i)
+print(re.findall(pattern, text))
